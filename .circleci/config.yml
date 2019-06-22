@@ -5,6 +5,8 @@
 version: 2
 jobs:
   build:
+    environment:
+      CC_TEST_REPORTER_ID: edcfd6157a2c4f277783e772ad6d2f2fb355fc22a0a39279ca95d4627d1277ad
     docker:
       # specify the version you desire here
       - image: circleci/ruby:2.4.6
@@ -38,9 +40,15 @@ jobs:
 
       # run tests!
       - run:
+        name: Install Code Climate Test Reporter
+        command: |
+          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+          chmod +x ./cc-test-reporter
+      - run:
           name: run tests
           command: |
             mkdir /tmp/test-results
+            ./cc-test-reporter before-build
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
               circleci tests split --split-by=timings)"
 
@@ -48,6 +56,10 @@ jobs:
               --format RspecJunitFormatter \
               --out /tmp/test-results/rspec.xml \
               $TEST_FILES
+      - run:
+          name: Code Climate Test Coverage
+          command: |
+            ./cc-test-reporter format-coverage -t simplecov -o "coverage/codeclimate.$CIRCLE_NODE_INDEX.json"
 
       # collect reports
       - store_test_results:
@@ -55,6 +67,9 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+      - deploy:
+          command: |
+            ./cc-test-reporter sum-coverage --output - --parts $CIRCLE_NODE_TOTAL coverage/codeclimate.*.json | ./cc-test-reporter upload-coverage --debug --input -
   deploy:
     docker:
       - image: circleci/ruby:2.4.6
