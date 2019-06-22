@@ -18,14 +18,14 @@ RSpec.describe NintendoEshop::Game do
       game = NintendoEshop::Game.retrieve("70010000001130")
 
       expect(game).to be_a NintendoEshop::Game
-      expect(game.art).to match(%r{/Switch_SuperMarioOdyssey_box.png})
-      expect(game.current_price).to eq 59.99
-      expect(game.id).to eq "70010000001130"
-      expect(game.msrp).to eq 59.99
-      expect(game.platform).to eq "Nintendo Switch"
+      expect(game.current_price).to eq game.msrp
       expect(game.sale_price).to eq nil
-      expect(game.title).to eq "Super Mario Odyssey"
-      expect(game.url).to eq "/games/detail/super-mario-odyssey-switch"
+    end
+
+    it "raises an invalid request if a game is not found" do
+      game = -> { NintendoEshop::Game.retrieve("invalid") }
+
+      expect { game.call }.to raise_error(NintendoEshop::InvalidRequestError, "ID not found")
     end
   end
 end

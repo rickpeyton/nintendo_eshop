@@ -7,6 +7,8 @@ module NintendoEshop
                      File.read("spec/http_stubs/sonic_response.txt")
                    when "70010000001130"
                      File.read("spec/http_stubs/mario_response.txt")
+                   when "invalid"
+                     File.read("spec/http_stubs/invalid_response.txt")
                    end
         OpenStruct.new(
           body: response

@@ -62,6 +62,16 @@ game.title # "Sonic Forces"
 game.url # "/games/detail/sonic-forces-switch"
 ```
 
+## Errors
+
+Error handling is still a work in progress
+
+```ruby
+game = NintendoEshop::Game.retrieve("invalid id")
+
+# => NintendoEshop::InvalidRequestError
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
