@@ -1,5 +1,9 @@
 # Nintendo eShop
 
+[![Dependabot Status][dependabot-status]][dependabot]
+[![Maintainability](https://api.codeclimate.com/v1/badges/5e41e08d88dbecfcf318/maintainability)](https://codeclimate.com/github/rickpeyton/nintendo_eshop/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/5e41e08d88dbecfcf318/test_coverage)](https://codeclimate.com/github/rickpeyton/nintendo_eshop/test_coverage)
+
 ## Description
 
 When I want to check the price of a game on the Nintendo eShop I want to search Nintendo's API by external key so that I am confident I am getting the correct price.
