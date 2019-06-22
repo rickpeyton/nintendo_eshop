@@ -1,5 +1,6 @@
 # Nintendo eShop
 
+[![Gem Version](https://badge.fury.io/rb/nintendo_eshop.svg)](https://badge.fury.io/rb/nintendo_eshop)
 [![CircleCI](https://circleci.com/gh/rickpeyton/nintendo_eshop.svg?style=svg)](https://circleci.com/gh/rickpeyton/nintendo_eshop)
 [![Maintainability](https://api.codeclimate.com/v1/badges/5e41e08d88dbecfcf318/maintainability)](https://codeclimate.com/github/rickpeyton/nintendo_eshop/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/5e41e08d88dbecfcf318/test_coverage)](https://codeclimate.com/github/rickpeyton/nintendo_eshop/test_coverage)
