@@ -5,7 +5,6 @@ require "bundler/setup"
 require "nintendo_eshop"
 
 require_relative "./fake_client"
-require_relative "http_stubs/http_stubs"
 
 require "webmock/rspec"
 
