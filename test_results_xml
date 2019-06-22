@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="rspec" tests="3" skipped="0" failures="0" errors="0" time="0.012374" timestamp="2019-06-22T04:13:21+00:00" hostname="07feaddbd13b">
+<properties>
+<property name="seed" value="64681"/>
+</properties>
+<testcase classname="spec.nintendo_eshop.game_spec" name="NintendoEshop::Game.retrieve retrieves a sale game from the Nintendo eShop API" file="./spec/nintendo_eshop/game_spec.rb" time="0.005981"></testcase>
+<testcase classname="spec.nintendo_eshop.game_spec" name="NintendoEshop::Game.retrieve retrieves a non-sale game from the Nintendo eShop API" file="./spec/nintendo_eshop/game_spec.rb" time="0.003820"></testcase>
+<testcase classname="spec.nintendo_eshop_spec" name="NintendoEshop has a version number" file="./spec/nintendo_eshop_spec.rb" time="0.000376"></testcase>
+</testsuite>

@@ -1,5 +1,5 @@
 example_id                                | status | run_time        |
 ----------------------------------------- | ------ | --------------- |
-./spec/nintendo_eshop/game_spec.rb[1:1:1] | passed | 0.00575 seconds |
-./spec/nintendo_eshop/game_spec.rb[1:1:2] | passed | 0.00603 seconds |
-./spec/nintendo_eshop_spec.rb[1:1]        | passed | 0.00036 seconds |
+./spec/nintendo_eshop/game_spec.rb[1:1:1] | passed | 0.00598 seconds |
+./spec/nintendo_eshop/game_spec.rb[1:1:2] | passed | 0.00382 seconds |
+./spec/nintendo_eshop_spec.rb[1:1]        | passed | 0.00038 seconds |
