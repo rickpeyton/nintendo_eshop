@@ -2,7 +2,7 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/5e41e08d88dbecfcf318/maintainability)](https://codeclimate.com/github/rickpeyton/nintendo_eshop/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/5e41e08d88dbecfcf318/test_coverage)](https://codeclimate.com/github/rickpeyton/nintendo_eshop/test_coverage)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&identifier=58271)](https://dependabot.com)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&identifier=193173552)](https://dependabot.com)
 
 ## Description
 
