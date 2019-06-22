@@ -1,0 +1,30 @@
+{
+	"name": "Nintendo eShop",
+	"dockerFile": "Dockerfile",
+	"context": "..",
+	"settings":  {
+		"[json]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		},
+		"[ruby]": {
+			"editor.formatOnSave": true
+		},
+		"ruby.format": "rubocop",
+		"editor.formatOnSaveTimeout": 2500,
+		"ruby.codeCompletion": false,
+		"ruby.intellisense": "rubyLocate",
+		"ruby.lint": {
+			"rubocop": true
+		},
+		"ruby.useBundler": true,
+		"solargraph.useBundler": true
+	},
+	"extensions": [
+		"castwide.solargraph",
+		"eamodio.gitlens",
+		"esbenp.prettier-vscode",
+		"kaiwood.endwise",
+		"noku.rails-run-spec-vscode",
+		"rebornix.Ruby"
+	],
+}
