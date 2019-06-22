@@ -45,8 +45,8 @@ jobs:
               circleci tests split --split-by=timings)"
 
             bundle exec rspec \
-              -f j \
-              --out /tmp/test-results/rspec.json \
+              --format rspec_junit_formatter \
+              --out /tmp/test-results/rspec.xml \
               $TEST_FILES
 
       # collect reports
