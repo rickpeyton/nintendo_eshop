@@ -55,3 +55,32 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+  deploy:
+    docker:
+      - image: circleci/ruby:2.4.6
+      
+    working_directory: ~/repo
+    
+    steps:
+      - checkout
+      - run:
+          name: Setup Rubygems
+          command: bash .circleci/setup-rubygems.sh
+      
+      - run:
+          name: Publish to Rubygems
+          command: |
+            gem build nintendo_eshop.gemspec
+            gem push "nintendo_eshop-$(git describe --tags).gem"
+
+workflows:
+  version: 2
+  test-deploy:
+    jobs:
+      - build
+      - deploy:
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/
