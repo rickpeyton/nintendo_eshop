@@ -1,0 +1,1 @@
+{"results":[{"url":"/games/detail/super-mario-odyssey-switch","title":"Super Mario Odyssey","nsuid":"70010000001130","boxArt":"/content/dam/noa/en_US/games/switch/s/super-mario-odyssey-switch/Switch_SuperMarioOdyssey_box.png","platform":"Nintendo Switch","msrp":59.99,"salePrice":null,"objectID":"3ce3fb54-5f95-3a24-9101-7faa694c4b6f"}]}

@@ -22,18 +22,40 @@ Or install it yourself as:
 
 ## Usage
 
+Use the provided base_url, api_key and app_id. These are provided as configuration in case the values change. The README will be updated to reflect the new values so that you do not have to update the library.
+
+```ruby
+NintendoEshop.base_url = "https://u3b6gr4ua3-dsn.algolia.net"
+NintendoEshop.api_key = "9a20c93440cf63cf1a7008d75f7438bf"
+NintendoEshop.app_id = "U3B6GR4UA3"
+
+game = NintendoEshop::Game.retrieve("3ce3fb54-5f95-3a24-9101-7faa694c4b6f")
+
+game.art # "/content/dam/noa/en_US/games/switch/s/super-mario-odyssey-switch/Switch_SuperMarioOdyssey_box.png"
+game.current_price # 59.99
+game.external_key # "3ce3fb54-5f95-3a24-9101-7faa694c4b6f"
+game.id # "70010000001130"
+game.msrp # 59.99
+game.platform # "Nintendo Switch"
+game.sale_price # nil
+game.title # Super Mario Odyssey"
+game.url # "/games/detail/super-mario-odyssey-switch"
+```
+
+Or a game on sale
+
 ```ruby
 game = NintendoEshop::Game.retrieve("26322c64-9268-3a24-822e-5e10f9e5cfc9")
 
-game.url # "/games/detail/sonic-forces-switch"
-game.title # "Sonic Forces"
-game.id # "70010000001539"
 game.art # "/content/dam/noa/en_US/games/switch/s/sonic-forces-switch/Switch_SonicForces_box.png"
-game.platform # "Nintendo Switch"
-game.msrp # 29.99
-game.sale_price # 14.99
 game.current_price # 14.99
 game.external_key # "26322c64-9268-3a24-822e-5e10f9e5cfc9
+game.id # "70010000001539"
+game.msrp # 29.99
+game.platform # "Nintendo Switch"
+game.sale_price # 14.99
+game.title # "Sonic Forces"
+game.url # "/games/detail/sonic-forces-switch"
 ```
 
 ## Development

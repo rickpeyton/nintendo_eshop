@@ -1,0 +1,1 @@
+{"results":[{"url":"/games/detail/sonic-forces-switch","title":"Sonic Forces","nsuid":"70010000001539","boxArt":"/content/dam/noa/en_US/games/switch/s/sonic-forces-switch/Switch_SonicForces_box.png","platform":"Nintendo Switch","msrp":29.99,"salePrice":14.99,"objectID":"26322c64-9268-3a24-822e-5e10f9e5cfc9"}]}

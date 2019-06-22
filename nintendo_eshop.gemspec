@@ -23,9 +23,11 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.17"
   spec.add_development_dependency "debase"
+  spec.add_development_dependency "pry"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "ramsey_cop"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "ruby-debug-ide"
   spec.add_development_dependency "solargraph"
+  spec.add_development_dependency "webmock"
 end
