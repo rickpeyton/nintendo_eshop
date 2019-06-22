@@ -62,6 +62,16 @@ game.title # "Sonic Forces"
 game.url # "/games/detail/sonic-forces-switch"
 ```
 
+## Errors
+
+Error handling is still a work in progress
+
+```ruby
+game = NintendoEshop::Game.retrieve("invalid id")
+
+# => NintendoEshop::InvalidRequestError
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -80,7 +90,14 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 CircleCi is used to push releases to rubygems.org
 
-To release, edit the version.rb file to the version you want to publish, commit that to your master branch, then create and push a git tag with the same name as your version:
+To release
+
+* Edit the version.rb file
+* `bundle`
+* Commit that to your master branch
+* Create and push a git tag with the same name as your version
+
+Example
 
 ```
 git tag -a 0.1.0
