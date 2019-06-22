@@ -80,7 +80,14 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 CircleCi is used to push releases to rubygems.org
 
-To release, edit the version.rb file to the version you want to publish, commit that to your master branch, then create and push a git tag with the same name as your version:
+To release
+
+* Edit the version.rb file
+* `bundle`
+* Commit that to your master branch
+* Create and push a git tag with the same name as your version
+
+Example
 
 ```
 git tag -a 0.1.0

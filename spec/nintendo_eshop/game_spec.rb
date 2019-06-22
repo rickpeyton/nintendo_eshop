@@ -1,8 +1,6 @@
 RSpec.describe NintendoEshop::Game do
   describe ".retrieve" do
     it "retrieves a sale game from the Nintendo eShop API" do
-      extend HTTPStubs
-      stub_game_retrieve("sonic")
       game = NintendoEshop::Game.retrieve("70010000001539")
 
       expect(game).to be_a NintendoEshop::Game
@@ -17,8 +15,6 @@ RSpec.describe NintendoEshop::Game do
     end
 
     it "retrieves a non-sale game from the Nintendo eShop API" do
-      extend HTTPStubs
-      stub_game_retrieve("mario")
       game = NintendoEshop::Game.retrieve("70010000001130")
 
       expect(game).to be_a NintendoEshop::Game
