@@ -1,7 +1,6 @@
 module NintendoEshop
   class Game < APIRequest
     attr_accessor :art
-    attr_accessor :external_key
     attr_accessor :id
     attr_accessor :msrp
     attr_accessor :platform
@@ -9,15 +8,15 @@ module NintendoEshop
     attr_accessor :title
     attr_accessor :url
 
-    RESOURCE_PATH = "/1/indexes/*/objects".freeze
+    RESOURCE_PATH = "/1/indexes/noa_aem_game_en_us/query".freeze
 
-    def initialize(external_key)
-      self.external_key = external_key
+    def initialize(id)
+      self.id = id
     end
 
     def refresh
       response = request(:post, to_json: body)
-      result = response.dig(:results, 0)
+      result = response.dig(:hits, 0)
       refresh_object(result)
       self
     end
@@ -26,8 +25,8 @@ module NintendoEshop
       sale_price || msrp
     end
 
-    def self.retrieve(external_key)
-      instance = new(external_key)
+    def self.retrieve(id)
+      instance = new(id)
       instance.refresh
     end
 
@@ -35,19 +34,15 @@ module NintendoEshop
 
     def body
       {
-        "requests" => [
-          {
-            "attributesToRetrieve" => "url,objectID,title,nsuid,salePrice,msrp,boxArt,platform",
-            "objectID" => external_key.to_s,
-            "indexName" => "noa_aem_game_en_us"
-          }
+        "query": id.to_s,
+        "restrictSearchableAttributes": [
+          "nsuid"
         ]
       }
     end
 
     def refresh_object(result)
       self.art = result.dig(:boxArt)
-      self.external_key = result.dig(:objectID)
       self.id = result.dig(:nsuid)
       self.msrp = result.dig(:msrp)
       self.platform = result.dig(:platform)

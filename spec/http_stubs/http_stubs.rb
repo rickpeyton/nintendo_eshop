@@ -1,11 +1,10 @@
 module HTTPStubs
   def stub_game_retrieve(game)
     response = File.read("#{__dir__}/#{game}_response.txt")
-    stub_request(:post, "#{NintendoEshop.base_url}/1/indexes/*/objects?" \
-                        "x-algolia-api-key=#{NintendoEshop.api_key}&x-algolia-application-id=#{NintendoEshop.app_id}")
+    stub_request(:post, "#{NintendoEshop.base_url}/1/indexes/noa_aem_game_en_us/query" \
+                        "?x-algolia-api-key=#{NintendoEshop.api_key}&x-algolia-application-id=#{NintendoEshop.app_id}")
       .with(
-        body: "{\"requests\":[{\"attributesToRetrieve\":\"url,objectID,title,nsuid,salePrice,msrp,boxArt,platform\"," \
-              "\"objectID\":\"#{external_key(game)}\",\"indexName\":\"noa_aem_game_en_us\"}]}",
+        body: "{\"query\":\"#{external_key(game)}\",\"restrictSearchableAttributes\":[\"nsuid\"]}",
         headers: {
           "Accept" => ["*/*", "application/json"],
           "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
@@ -21,9 +20,9 @@ private
   def external_key(game)
     case game
     when "mario"
-      "3ce3fb54-5f95-3a24-9101-7faa694c4b6f"
+      "70010000001130"
     when "sonic"
-      "26322c64-9268-3a24-822e-5e10f9e5cfc9"
+      "70010000001539"
     end
   end
 end
