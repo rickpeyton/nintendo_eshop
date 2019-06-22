@@ -1,8 +1,8 @@
 # Nintendo eShop
 
-[![Dependabot Status][dependabot-status]][dependabot]
 [![Maintainability](https://api.codeclimate.com/v1/badges/5e41e08d88dbecfcf318/maintainability)](https://codeclimate.com/github/rickpeyton/nintendo_eshop/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/5e41e08d88dbecfcf318/test_coverage)](https://codeclimate.com/github/rickpeyton/nintendo_eshop/test_coverage)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&identifier=58271)](https://dependabot.com)
 
 ## Description
 
@@ -26,7 +26,7 @@ Or install it yourself as:
 
 ## Usage
 
-Use the provided base_url, api_key and app_id. These are provided as configuration in case the values change. The README will be updated to reflect the new values so that you do not have to update the library.
+Use the provided `base_url`, `api_key` and `app_id`. These are provided as configuration in case the values change. The README will be updated to reflect the new values so that you do not have to update the library.
 
 ```ruby
 NintendoEshop.base_url = "https://u3b6gr4ua3-dsn.algolia.net"
