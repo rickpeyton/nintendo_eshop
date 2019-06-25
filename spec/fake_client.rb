@@ -9,6 +9,8 @@ module NintendoEshop
                      File.read("spec/http_responses/mario_response.txt")
                    when "invalid"
                      File.read("spec/http_responses/invalid_response.txt")
+                   when "Mario"
+                     File.read("spec/http_responses/mario_games_list_response.txt")
                    end
         OpenStruct.new(
           body: response
