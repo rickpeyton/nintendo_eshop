@@ -1,3 +1,6 @@
 inherit_gem:
   ramsey_cop:
     - default.yml
+
+AllCops:
+  TargetRubyVersion: 2.4
