@@ -7,6 +7,7 @@ require "net/http"
 require_relative "nintendo_eshop/api_client"
 require_relative "nintendo_eshop/api_request"
 require_relative "nintendo_eshop/game"
+require_relative "nintendo_eshop/games_list"
 require_relative "nintendo_eshop/version"
 
 module NintendoEshop

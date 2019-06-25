@@ -35,6 +35,8 @@ NintendoEshop.base_url = "https://u3b6gr4ua3-dsn.algolia.net"
 NintendoEshop.api_key = "9a20c93440cf63cf1a7008d75f7438bf"
 NintendoEshop.app_id = "U3B6GR4UA3"
 
+### Retrieve a game by ID
+
 game = NintendoEshop::Game.retrieve("70010000001130")
 
 game.art # "/content/dam/noa/en_US/games/switch/s/super-mario-odyssey-switch/Switch_SuperMarioOdyssey_box.png"
@@ -60,6 +62,14 @@ game.platform # "Nintendo Switch"
 game.sale_price # 14.99
 game.title # "Sonic Forces"
 game.url # "/games/detail/sonic-forces-switch"
+```
+
+### Search by Title
+
+```ruby
+games = NintendoEshop::GamesList.by_title("Super Mario Odyssey")
+
+games.first.title # "Super Mario Odyssey: Starter"
 ```
 
 ## Errors

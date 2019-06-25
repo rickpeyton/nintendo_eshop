@@ -1,0 +1,90 @@
+require: rubocop-performance
+
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - vendor/**/*
+  TargetRubyVersion: 2.4.6
+
+Documentation:
+  Enabled: false
+
+Layout/AccessModifierIndentation:
+  EnforcedStyle: outdent
+
+Metrics/AbcSize:
+  Exclude:
+    - spec/**/*
+    - test/**/*
+
+Metrics/BlockLength:
+  Exclude:
+    - config/initializers/*
+    - config/routes.rb
+    - Gemfile
+    - spec/**/*
+    - test/**/*
+    - "*.gemspec"
+    - "**/*.rake"
+
+Metrics/BlockNesting:
+  Exclude:
+    - spec/**/*
+    - test/**/*
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - spec/**/*
+    - test/**/*
+
+Metrics/LineLength:
+  Max: 120
+  Exclude:
+    - config/routes.rb
+    - config/routes/*
+    - db/migrate/*
+
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/*
+    - spec/**/*
+    - test/**/*
+
+Metrics/ModuleLength:
+  Exclude:
+    - spec/**/*
+    - test/**/*
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
+Style/AndOr:
+  EnforcedStyle: conditionals
+
+Style/DateTime:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%i': ()
+    '%I': ()
+    '%q': ()
+    '%Q': ()
+    '%r': '{}'
+    '%s': ()
+    '%w': ()
+    '%W': ()
+    '%x': ()
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  Enabled: true

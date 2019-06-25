@@ -9,12 +9,22 @@ Gem::Specification.new do |spec|
   spec.email         = ["peytorb@gmail.com"]
 
   spec.summary       = "Retrieve game prices from the Nintendo eShop"
-  spec.homepage      = "https://github.com/rickpeyton/nintendo_eshop"
-  spec.license       = "MIT"
+  spec.description = <<~DESCRIPTION
+    When I want to check the price of a game on the Nintendo eShop I want to search Nintendo's
+    API by external key so that I am confident I am getting the correct price.
+  DESCRIPTION
+  spec.homepage = "https://github.com/rickpeyton/nintendo_eshop"
+  spec.metadata = {
+    "changelog_uri" => "https://github.com/rickpeyton/nintendo_eshop/releases",
+    "homepage_uri" => "https://github.com/rickpeyton/nintendo_eshop",
+    "source_code_uri" => "https://github.com/rickpeyton/nintendo_eshop"
+  }
+  spec.license = "MIT"
+  spec.required_ruby_version = ">= 2.4.6"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-  spec.files         = Dir.chdir(File.expand_path(__dir__)) do
+  spec.files = Dir.chdir(File.expand_path(__dir__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
   spec.bindir        = "exe"
