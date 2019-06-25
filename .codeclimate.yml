@@ -7,5 +7,9 @@ plugins:
   rubocop:
     enabled: true
     channel: "rubocop-0-67"
+    checks:
+      AllCops:
+        TargetRubyVersion: 2.4
+
     config:
       file: "alternate-rubocop-path.yml"
