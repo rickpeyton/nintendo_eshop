@@ -1,3 +1,3 @@
 module NintendoEshop
-  VERSION = "0.1.0.alpha4".freeze
+  VERSION = "0.1.0".freeze
 end
