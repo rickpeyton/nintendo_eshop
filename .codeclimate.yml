@@ -4,4 +4,4 @@ plugins:
     enabled: true
     channel: "rubocop-0-71"
     config:
-      file: ".rubocop.yml
+      file: ".rubocop.yml"
