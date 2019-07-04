@@ -12,10 +12,9 @@ module NintendoEshop
     end
 
     def post(json: {})
-      uri = URI("#{NintendoEshop.base_url}#{self.class::RESOURCE_PATH}?#{url_params}")
+      uri = URI("#{NintendoEshop.base_url}#{resource_path}?#{url_params}")
       response = NintendoEshop.client.post(uri, json: json)
       parsed_response = JSON.parse(response.body, symbolize_names: true)
-      raise InvalidRequestError, "ID not found" if parsed_response.dig(:nbHits).zero?
 
       parsed_response
     end

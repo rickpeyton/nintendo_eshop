@@ -10,6 +10,7 @@ RSpec.describe NintendoEshop::GamesList do
 
       expect(actual).to be_a(NintendoEshop::GamesList)
       expect(first_game.title).to eq("Dr. Mario World")
+      expect(first_game.object_id).not_to be_nil
     end
   end
 end

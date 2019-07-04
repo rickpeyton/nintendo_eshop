@@ -9,15 +9,21 @@ module NintendoEshop
     attr_accessor :title
     attr_accessor :url
 
-    RESOURCE_PATH = "/1/indexes/noa_aem_game_en_us/query".freeze
-
-    def initialize(id)
+    def initialize(id: nil, object_id: nil)
       self.id = id
+      self.object_id = object_id
     end
 
     def refresh
       response = request(:post, to_json: body)
-      result = response.dig(:hits, 0)
+      result = if response.dig(:hits)&.any?
+                 response.dig(:hits, 0)
+               elsif response.dig(:results)&.any?
+                 response.dig(:results, 0)
+               else
+                 raise InvalidRequestError, "ID not found"
+               end
+
       refresh_object(result)
       self
     end
@@ -27,19 +33,44 @@ module NintendoEshop
     end
 
     def self.retrieve(id)
-      instance = new(id)
+      instance = new(id: id)
+      instance.refresh
+    end
+
+    def self.retrieve_by_object_id(object_id)
+      instance = new(object_id: object_id)
       instance.refresh
     end
 
   private
 
     def body
-      {
-        "query": id.to_s,
-        "restrictSearchableAttributes": [
-          "nsuid"
-        ]
-      }
+      if id
+        {
+          "query": id.to_s,
+          "restrictSearchableAttributes": [
+            "nsuid"
+          ]
+        }
+      elsif object_id
+        {
+          "requests": [
+            {
+              "indexName": "noa_aem_game_en_us",
+              "objectID": object_id.to_s,
+              "attributesToRetrieve": "url,objectID,title,nsuid,salePrice,msrp,boxArt,platform"
+            }
+          ]
+        }
+      end
+    end
+
+    def resource_path
+      if id
+        "/1/indexes/noa_aem_game_en_us/query".freeze
+      elsif object_id
+        "/1/indexes/*/objects".freeze
+      end
     end
 
     def refresh_object(result)
