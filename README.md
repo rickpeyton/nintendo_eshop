@@ -35,14 +35,15 @@ NintendoEshop.base_url = "https://u3b6gr4ua3-dsn.algolia.net"
 NintendoEshop.api_key = "9a20c93440cf63cf1a7008d75f7438bf"
 NintendoEshop.app_id = "U3B6GR4UA3"
 
-### Retrieve a game by ID
+### Retrieve a game by ID (nsuid)
 
-game = NintendoEshop::Game.retrieve("70010000001130")
+game = NintendoEshop::Game.retrieve_by(id: "70010000001130")
 
 game.art # "/content/dam/noa/en_US/games/switch/s/super-mario-odyssey-switch/Switch_SuperMarioOdyssey_box.png"
 game.current_price # 59.99
 game.id # "70010000001130"
 game.msrp # 59.99
+game.object_id # 3ce3fb54-5f95-3a24-9101-7faa694c4b6f
 game.platform # "Nintendo Switch"
 game.sale_price # nil
 game.title # Super Mario Odyssey"
@@ -52,16 +53,32 @@ game.url # "/games/detail/super-mario-odyssey-switch"
 Or a game on sale
 
 ```ruby
-game = NintendoEshop::Game.retrieve("70010000001539")
+game = NintendoEshop::Game.retrieve_by(id: "70010000001539")
 
 game.art # "/content/dam/noa/en_US/games/switch/s/sonic-forces-switch/Switch_SonicForces_box.png"
 game.current_price # 14.99
 game.id # "70010000001539"
 game.msrp # 29.99
+game.object_id # 26322c64-9268-3a24-822e-5e10f9e5cfc9
 game.platform # "Nintendo Switch"
 game.sale_price # 14.99
 game.title # "Sonic Forces"
 game.url # "/games/detail/sonic-forces-switch"
+```
+
+Or by object_id
+
+```ruby
+game = NintendoEshop::Game.retrieve_by(object_id: "26851cb3-4f10-333a-8d7c-f9cae4a9bc03")
+
+game.id # "70010000001023"
+game.object_id # "26851cb3-4f10-333a-8d7c-f9cae4a9bc03"
+game.art # "/content/dam/noa/en_US/games/switch/b/bridge-constructor-portal-switch/Switch_BridgeConstructorPortal_box_eShop.png"
+game.msrp # 14.99
+game.platform # "Nintendo Switch"
+game.sale_price # 7.49
+game.title # "Bridge Constructor Portal"
+game.url # "/games/detail/bridge-constructor-portal-switch"
 ```
 
 ### Search by Title
@@ -77,7 +94,7 @@ games.first.title # "Super Mario Odyssey: Starter"
 Error handling is still a work in progress
 
 ```ruby
-game = NintendoEshop::Game.retrieve("invalid id")
+game = NintendoEshop::Game.retrieve_by(id: "invalid id")
 
 # => NintendoEshop::InvalidRequestError
 ```

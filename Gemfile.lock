@@ -36,9 +36,6 @@ GEM
     public_suffix (3.1.0)
     rainbow (3.0.0)
     rake (12.3.2)
-    ramsey_cop (0.14.0)
-      rubocop (~> 0.62)
-      rubocop-performance
     reverse_markdown (1.1.0)
       nokogiri
     rspec (3.8.0)
@@ -56,7 +53,7 @@ GEM
     rspec-support (3.8.2)
     rspec_junit_formatter (0.4.1)
       rspec-core (>= 2, < 4, != 2.12.0)
-    rubocop (0.72.0)
+    rubocop (0.71.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.6)
@@ -104,9 +101,10 @@ DEPENDENCIES
   nintendo_eshop!
   pry
   rake (~> 12.3)
-  ramsey_cop
   rspec (~> 3.0)
   rspec_junit_formatter
+  rubocop (~> 0.71.0)
+  rubocop-performance
   ruby-debug-ide
   simplecov
   solargraph

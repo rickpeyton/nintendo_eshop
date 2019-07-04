@@ -5,8 +5,6 @@ module NintendoEshop
     attr_accessor :title
     attr_accessor :games
 
-    RESOURCE_PATH = "/1/indexes/noa_aem_game_en_us/query".freeze
-
     def initialize(title)
       self.title = title
     end
@@ -40,11 +38,16 @@ module NintendoEshop
       }
     end
 
-    def refresh_list_objects(objects)
+    def resource_path
+      "/1/indexes/noa_aem_game_en_us/query".freeze
+    end
+
+    def refresh_list_objects(objects) # rubocop:disable Metrics/MethodLength
       objects.map do |object|
-        game = Game.new(object.dig(:nsuid))
+        game = Game.new(id: object.dig(:nsuid))
         game.art = object.dig(:boxArt)
         game.msrp = object.dig(:msrp)
+        game.object_id = object.dig(:objectID)
         game.platform = object.dig(:platform)
         game.sale_price = object.dig(:salePrice)
         game.title = object.dig(:title)
