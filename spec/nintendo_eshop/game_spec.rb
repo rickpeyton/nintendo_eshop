@@ -8,6 +8,7 @@ RSpec.describe NintendoEshop::Game do
       expect(game.current_price).to eq 14.99
       expect(game.id).to eq "70010000001539"
       expect(game.msrp).to eq 29.99
+      expect(game.object_id).to eq "26322c64-9268-3a24-822e-5e10f9e5cfc9"
       expect(game.platform).to eq "Nintendo Switch"
       expect(game.sale_price).to eq 14.99
       expect(game.title).to eq "Sonic Forces"

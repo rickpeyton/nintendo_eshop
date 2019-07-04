@@ -43,6 +43,7 @@ game.art # "/content/dam/noa/en_US/games/switch/s/super-mario-odyssey-switch/Swi
 game.current_price # 59.99
 game.id # "70010000001130"
 game.msrp # 59.99
+game.object_id # 3ce3fb54-5f95-3a24-9101-7faa694c4b6f
 game.platform # "Nintendo Switch"
 game.sale_price # nil
 game.title # Super Mario Odyssey"
@@ -58,6 +59,7 @@ game.art # "/content/dam/noa/en_US/games/switch/s/sonic-forces-switch/Switch_Son
 game.current_price # 14.99
 game.id # "70010000001539"
 game.msrp # 29.99
+game.object_id # 26322c64-9268-3a24-822e-5e10f9e5cfc9
 game.platform # "Nintendo Switch"
 game.sale_price # 14.99
 game.title # "Sonic Forces"

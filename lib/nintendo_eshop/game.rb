@@ -3,6 +3,7 @@ module NintendoEshop
     attr_accessor :art
     attr_accessor :id
     attr_accessor :msrp
+    attr_accessor :object_id
     attr_accessor :platform
     attr_accessor :sale_price
     attr_accessor :title
@@ -45,6 +46,7 @@ module NintendoEshop
       self.art = result.dig(:boxArt)
       self.id = result.dig(:nsuid)
       self.msrp = result.dig(:msrp)
+      self.object_id = result.dig(:objectID)
       self.platform = result.dig(:platform)
       self.sale_price = result.dig(:salePrice)
       self.title = result.dig(:title)

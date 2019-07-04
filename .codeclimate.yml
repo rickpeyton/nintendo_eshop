@@ -1,11 +1,7 @@
 version: "2"
-# prepare:
-#   fetch:
-#     - url: "https://raw.githubusercontent.com/RamseyInHouse/ramsey-cop/master/default.yml"
-#       path: "alternate-rubocop-path.yml"
 plugins:
   rubocop:
     enabled: true
-    channel: "rubocop-0-67"
+    channel: "rubocop-0-71"
     config:
-      file: "alternate-rubocop-path.yml"
+      file: ".rubocop.yml
