@@ -32,9 +32,19 @@ module NintendoEshop
       sale_price || msrp
     end
 
-    def self.retrieve_by(id_type = {})
-      instance = new(id_type)
-      instance.refresh
+    class << self
+      def retrieve_by(id_type = {})
+        validate_argument(id_type)
+        instance = new(id_type)
+        instance.refresh
+      end
+
+    private
+
+      def validate_argument(argument)
+        valid_args = argument.keys == [:id] || argument.keys == [:object_id]
+        raise InvalidArgumentError, "Only id: and object_id: have been implemented" unless valid_args
+      end
     end
 
   private

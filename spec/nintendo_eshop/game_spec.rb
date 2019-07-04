@@ -43,5 +43,13 @@ RSpec.describe NintendoEshop::Game do
 
       expect { game.call }.to raise_error(NintendoEshop::InvalidRequestError, "ID not found")
     end
+
+    it "raises an invalid argument error is an invalid symbol is passed to retrieve_by" do
+      game = -> { NintendoEshop::Game.retrieve_by(title: "Mario") }
+
+      expect { game.call }.to raise_error(
+        NintendoEshop::InvalidArgumentError, "Only id: and object_id: have been implemented"
+      )
+    end
   end
 end

@@ -24,5 +24,6 @@ module NintendoEshop
   end
 
   class Error < StandardError; end
+  class InvalidArgumentError < Error; end
   class InvalidRequestError < Error; end
 end
