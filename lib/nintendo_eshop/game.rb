@@ -32,13 +32,8 @@ module NintendoEshop
       sale_price || msrp
     end
 
-    def self.retrieve(id)
-      instance = new(id: id)
-      instance.refresh
-    end
-
-    def self.retrieve_by_object_id(object_id)
-      instance = new(object_id: object_id)
+    def self.retrieve_by(id_type = {})
+      instance = new(id_type)
       instance.refresh
     end
 
@@ -46,23 +41,31 @@ module NintendoEshop
 
     def body
       if id
-        {
-          "query": id.to_s,
-          "restrictSearchableAttributes": [
-            "nsuid"
-          ]
-        }
+        query_body
       elsif object_id
-        {
-          "requests": [
-            {
-              "indexName": "noa_aem_game_en_us",
-              "objectID": object_id.to_s,
-              "attributesToRetrieve": "url,objectID,title,nsuid,salePrice,msrp,boxArt,platform"
-            }
-          ]
-        }
+        object_body
       end
+    end
+
+    def query_body
+      {
+        "query": id.to_s,
+        "restrictSearchableAttributes": [
+          "nsuid"
+        ]
+      }
+    end
+
+    def object_body
+      {
+        "requests": [
+          {
+            "indexName": "noa_aem_game_en_us",
+            "objectID": object_id.to_s,
+            "attributesToRetrieve": "url,objectID,title,nsuid,salePrice,msrp,boxArt,platform"
+          }
+        ]
+      }
     end
 
     def resource_path
