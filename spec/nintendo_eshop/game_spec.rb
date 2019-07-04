@@ -34,7 +34,7 @@ RSpec.describe NintendoEshop::Game do
     game = NintendoEshop::Game.retrieve_by(object_id: "26851cb3-4f10-333a-8d7c-f9cae4a9bc03")
 
     expect(game).to be_a NintendoEshop::Game
-    expect(game.art).to eq "/content/dam/noa/en_US/games/switch/b/bridge-constructor-portal-switch/Switch_BridgeConstructorPortal_box_eShop.png"
+    expect(game.art).to match(/Switch_BridgeConstructorPortal_box_eShop.png/)
     expect(game.current_price).to eq 7.49
     expect(game.id).to eq "70010000001023"
     expect(game.msrp).to eq 14.99
