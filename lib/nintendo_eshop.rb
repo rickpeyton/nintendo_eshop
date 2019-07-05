@@ -1,6 +1,6 @@
 begin
   require "pry"
-rescue Exception; end # rubocop:disable Lint/HandleExceptions
+rescue Exception; end # rubocop:disable Lint/HandleExceptions, Lint/RescueException
 require "json"
 require "net/http"
 
