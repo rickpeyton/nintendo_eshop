@@ -4,7 +4,7 @@ RSpec.describe NintendoEshop::Game do
       game = NintendoEshop::Game.retrieve_by(id: "70010000001539")
 
       expect(game).to be_a NintendoEshop::Game
-      expect(game.art).to eq "/content/dam/noa/en_US/games/switch/s/sonic-forces-switch/Switch_SonicForces_box.png"
+      expect(game.art).to eq "https://www.nintendo.com/content/dam/noa/en_US/games/switch/s/sonic-forces-switch/Switch_SonicForces_box.png"
       expect(game.current_price).to eq 14.99
       expect(game.id).to eq "70010000001539"
       expect(game.msrp).to eq 29.99
@@ -12,7 +12,13 @@ RSpec.describe NintendoEshop::Game do
       expect(game.platform).to eq "Nintendo Switch"
       expect(game.sale_price).to eq 14.99
       expect(game.title).to eq "Sonic Forces"
-      expect(game.url).to eq "/games/detail/sonic-forces-switch"
+      expect(game.url).to eq "https://www.nintendo.com/games/detail/sonic-forces-switch"
+      expect(game.sale_percent).to eq "50%"
+      expect(game.description).to match(/From the team that brought you Sonic Colors and Generations, comes the next/)
+      expect(game.esrb).to eq "Everyone 10+"
+      expect(game.categories).to eq ["Action"]
+      expect(game.release_date).to eq Date.new(2017, 11, 7)
+      expect(game.release_date_pretty).to eq "Nov 07, 2017"
     end
 
     it "retrieves a non-sale game from the Nintendo eShop API" do
@@ -35,7 +41,13 @@ RSpec.describe NintendoEshop::Game do
       expect(game.platform).to eq "Nintendo Switch"
       expect(game.sale_price).to eq 7.49
       expect(game.title).to eq "Bridge Constructor Portal"
-      expect(game.url).to eq "/games/detail/bridge-constructor-portal-switch"
+      expect(game.url).to eq "https://www.nintendo.com/games/detail/bridge-constructor-portal-switch"
+      expect(game.sale_percent).to eq "50%"
+      expect(game.description).to match(/Enter the Aperture Science Enrichment Center and experience Bridge Construct/)
+      expect(game.esrb).to eq "Everyone 10+"
+      expect(game.categories).to eq %w(Simulation Puzzle)
+      expect(game.release_date).to eq Date.new(2018, 2, 28)
+      expect(game.release_date_pretty).to eq "Feb 28, 2018"
     end
 
     it "raises an invalid request if a game is not found" do

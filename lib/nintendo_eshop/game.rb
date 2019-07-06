@@ -1,10 +1,14 @@
 module NintendoEshop
   class Game < APIRequest
     attr_accessor :art
+    attr_accessor :categories
+    attr_accessor :description
+    attr_accessor :esrb
     attr_accessor :id
     attr_accessor :msrp
     attr_accessor :object_id
     attr_accessor :platform
+    attr_accessor :release_date
     attr_accessor :sale_price
     attr_accessor :title
     attr_accessor :url
@@ -30,6 +34,14 @@ module NintendoEshop
 
     def current_price
       sale_price || msrp
+    end
+
+    def release_date_pretty
+      release_date.strftime("%b %d, %Y")
+    end
+
+    def sale_percent
+      ((1 - (sale_price / msrp)).round(2) * 100).to_i.to_s + "%" if sale_price
     end
 
     class << self
@@ -72,7 +84,7 @@ module NintendoEshop
           {
             "indexName": "noa_aem_game_en_us",
             "objectID": object_id.to_s,
-            "attributesToRetrieve": "url,objectID,title,nsuid,salePrice,msrp,boxArt,platform"
+            "attributesToRetrieve": "boxArt,categories,description,esrb,msrp,nsuid,objectID,platform,releaseDateMask,salePrice,title,url" # rubocop:disable Metrics/LineLength
           }
         ]
       }
@@ -86,15 +98,19 @@ module NintendoEshop
       end
     end
 
-    def refresh_object(result)
-      self.art = result.dig(:boxArt)
+    def refresh_object(result) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+      self.art = "https://www.nintendo.com#{result.dig(:boxArt)}"
+      self.categories = result.dig(:categories)
+      self.description = result.dig(:description).tr("\n", " ").squeeze
+      self.esrb = result.dig(:esrb)
       self.id = result.dig(:nsuid)
       self.msrp = result.dig(:msrp)
       self.object_id = result.dig(:objectID)
       self.platform = result.dig(:platform)
+      self.release_date = Date.parse(result.dig(:releaseDateMask))
       self.sale_price = result.dig(:salePrice)
       self.title = result.dig(:title)
-      self.url = result.dig(:url)
+      self.url = "https://www.nintendo.com#{result.dig(:url)}"
     end
   end
 end

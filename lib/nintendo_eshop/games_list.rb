@@ -42,16 +42,10 @@ module NintendoEshop
       "/1/indexes/noa_aem_game_en_us/query".freeze
     end
 
-    def refresh_list_objects(objects) # rubocop:disable Metrics/MethodLength
+    def refresh_list_objects(objects)
       objects.map do |object|
         game = Game.new(id: object.dig(:nsuid))
-        game.art = object.dig(:boxArt)
-        game.msrp = object.dig(:msrp)
-        game.object_id = object.dig(:objectID)
-        game.platform = object.dig(:platform)
-        game.sale_price = object.dig(:salePrice)
-        game.title = object.dig(:title)
-        game.url = object.dig(:url)
+        game.send(:refresh_object, object)
         game
       end
     end
