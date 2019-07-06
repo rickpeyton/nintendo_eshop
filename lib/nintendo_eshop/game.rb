@@ -84,7 +84,7 @@ module NintendoEshop
           {
             "indexName": "noa_aem_game_en_us",
             "objectID": object_id.to_s,
-            "attributesToRetrieve": "url,objectID,title,nsuid,salePrice,msrp,boxArt,platform,description,esrb,categories,releaseDateMask" # rubocop:disable Metrics/LineLength
+            "attributesToRetrieve": "boxArt,categories,description,esrb,msrp,nsuid,objectID,platform,releaseDateMask,salePrice,title,url" # rubocop:disable Metrics/LineLength
           }
         ]
       }
