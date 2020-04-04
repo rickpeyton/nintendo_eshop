@@ -36,7 +36,7 @@ GEM
       method_source (~> 1.0)
     public_suffix (4.0.3)
     rainbow (3.0.0)
-    rake (12.3.3)
+    rake (13.0.1)
     reverse_markdown (1.4.0)
       nokogiri
     rspec (3.9.0)
@@ -102,8 +102,9 @@ DEPENDENCIES
   bundler (~> 1.17)
   debase
   nintendo_eshop!
+  nokogiri (>= 1.10.8)
   pry
-  rake (~> 12.3)
+  rake (>= 12.3.3)
   rspec (~> 3.0)
   rspec_junit_formatter
   rubocop (~> 0.71.0)
