@@ -132,6 +132,6 @@ To release
 Example
 
 ```
-git tag -a 0.1.0
+git tag -m "Release 0.1.0" 0.1.0
 git push origin 0.1.0
 ```
