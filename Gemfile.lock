@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nintendo_eshop (0.2.0)
+    nintendo_eshop (0.2.1)
 
 GEM
   remote: https://rubygems.org/
