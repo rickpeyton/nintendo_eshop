@@ -22,7 +22,6 @@ GEM
     e2mmap (0.1.0)
     hashdiff (1.0.1)
     jaro_winkler (1.5.4)
-    json (2.3.0)
     maruku (0.7.3)
     method_source (1.0.0)
     mini_portile2 (2.4.0)
@@ -67,11 +66,10 @@ GEM
       rake (>= 0.8.1)
     ruby-progressbar (1.10.1)
     safe_yaml (1.0.5)
-    simplecov (0.17.1)
+    simplecov (0.18.5)
       docile (~> 1.1)
-      json (>= 1.8, < 3)
-      simplecov-html (~> 0.10.0)
-    simplecov-html (0.10.2)
+      simplecov-html (~> 0.11)
+    simplecov-html (0.12.2)
     solargraph (0.38.6)
       backport (~> 1.1)
       benchmark
@@ -110,7 +108,7 @@ DEPENDENCIES
   rubocop (~> 0.71.0)
   rubocop-performance
   ruby-debug-ide
-  simplecov (~> 0.17.0)
+  simplecov (~> 0.18.5)
   solargraph
   webmock
 
