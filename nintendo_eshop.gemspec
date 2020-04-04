@@ -40,7 +40,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubocop", "~> 0.71.0"
   spec.add_development_dependency "rubocop-performance"
   spec.add_development_dependency "ruby-debug-ide"
-  spec.add_development_dependency "simplecov"
+  spec.add_development_dependency "simplecov", "~> 0.17.0"
   spec.add_development_dependency "solargraph"
   spec.add_development_dependency "webmock"
 end
