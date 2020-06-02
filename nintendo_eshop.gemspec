@@ -38,7 +38,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", ">= 12.3.3"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "rspec_junit_formatter"
-  spec.add_development_dependency "rubocop", "~> 0.71.0"
+  spec.add_development_dependency "rubocop", "~> 0.85.0"
   spec.add_development_dependency "rubocop-performance"
   spec.add_development_dependency "ruby-debug-ide"
   spec.add_development_dependency "simplecov", "~> 0.17.0"
